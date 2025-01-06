@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Component
-@EnableRabbit
 @RabbitListener(queues = "gps-queue")
 public class RabbitMQConfig {
 
