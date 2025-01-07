@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Component
+@RabbitListener(queues = "gps-queue")
 public class RabbitMQConfig {
 
     public static final String QUEUE_NAME = "gps-queue";
@@ -21,7 +22,7 @@ public class RabbitMQConfig {
 
 
 
-    @RabbitListener(queues = "gps-queue")
+    @RabbitHandler
     public void listen(String message) {
         System.out.println("Received message: " + message);
     }
